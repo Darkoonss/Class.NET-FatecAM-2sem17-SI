@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+   <title></title>
+   <!-- LIGAÇÃO COM CSS-->
+   <link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css" />
+
+   <!-- REF: http://flexslider.woothemes.com/ -->
+   <!-- CARREGA O CSS DO FLEXSLIDER -->
+   <link rel="stylesheet" type="text/css" href="~/JS/flexslider/flexslider.css" />
+   <script type="text/javascript" src="JS/jquery-1.7.2.min.js"></script>
+   <script type="text/javascript" src="JS/flexslider/flexslider.min.js"></script>
+
+   <asp:ContentPlaceHolder ID="head" runat="server">
+   </asp:ContentPlaceHolder>
+</head>
+<body>
+   <form id="form1" runat="server">
+      <!-- CABEÇALHO-->
+      <div class="cabecalho">
+         <!-- LOGOMARCA-->
+         <div class="logomarca">
+            <img src="Images/marca.png" />
+         </div>
+         <!-- MENU-->
+         <div class="menu">
+
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">HOME</asp:HyperLink>
+
+            <asp:HyperLink ID="HyperLink2" NavigateUrl="~/Sobre.aspx" runat="server">SOBRE</asp:HyperLink>
+
+            <asp:HyperLink ID="HyperLink3" NavigateUrl="~/FaleConosco.aspx" runat="server">FALE CONOSCO</asp:HyperLink>
+
+         </div>
+      </div>
+      <!-- ÁREA DE CONTEUDO-->
+      <div class="conteudo">
+         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+         </asp:ContentPlaceHolder>
+      </div>
+      <!-- RODAPÉ -->
+      <div class="rodape">
+      </div>
+   </form>
+</body>
+</html>
