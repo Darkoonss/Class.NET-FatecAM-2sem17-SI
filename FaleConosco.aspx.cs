@@ -17,39 +17,36 @@ public partial class FaleConosco : System.Web.UI.Page
 
    protected void Enviar_Click(object sender, EventArgs e)
    {
+      try
+      {
+         SmtpClient smtp = new SmtpClient();
+         MailMessage email = new MailMessage();
 
-        try
-        {
+         // Monta a mensagem do email
+         email.Subject = "Fale Conosco";
+         email.Body = Nome.Text + "\n" + Email.Text + "\n" + Mensagem.Text;
+         email.IsBodyHtml = false;
+         email.To.Add("contato@seudominio.com.br");
+         MailAddress eFrom = new MailAddress("contato@seudominio.com.br");
+         email.From = eFrom;
 
-            SmtpClient smtp = new SmtpClient();
-            MailMessage email = new MailMessage();
+         // AUTENTICAÇÃO NO  SERVER SMTP
+         smtp.Host = "smtp.seudominio.com.br";
+         smtp.Port = 587;
+         smtp.EnableSsl = false;
+         smtp.Credentials = new NetworkCredential("contato@seudominio.com.br", "sua senha");
+         // ENVIA O EMAIL
+         smtp.Send(email);
 
-        }
-        catch (Exception)
-        {
+         formEmail.Visible = false;
+         MsgFinal.Visible = true;
 
-            Msg.Text = "Houve uma falha no envio, tente novamente mais tarde ";
+      }
+      catch (Exception)
+      {
+         Msg.Text = "Houve uma falha no envio, tente novamente!";
 
-        }
-
-      // Monta a mensagem do email
-      email.Subject = "Fale Conosco";
-      email.Body = Nome.Text + "\n" + Email.Text + "\n" + Mensagem.Text;
-      email.IsBodyHtml = false;
-      email.To.Add("contato@seudominio.com.br");
-      MailAddress eFrom = new MailAddress("contato@seudominio.com.br");
-      email.From = eFrom;
-
-      // AUTENTICAÇÃO NO  SERVER SMTP
-      smtp.Host = "smtp.seudominio.com.br";
-      smtp.Port = 587;
-      smtp.EnableSsl = false;
-      smtp.Credentials = new NetworkCredential("contato@seudominio.com.br", "sua senha");
-      // ENVIA O EMAIL
-      //smtp.Send(email);
-
-      formEmail.Visible = false;
-      MsgFinal.Visible = true;
+      }
 
    }
 }

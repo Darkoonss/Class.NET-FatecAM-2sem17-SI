@@ -8,17 +8,21 @@
       <div style="padding: 20px; font-size: 12px;">
          <img src="Images/icon_faleconosco.png" />
          <h1>Fale Conosco</h1>
-
          <!-- FORMULÁRIO -->
          <div id="formEmail" runat="server" visible="true">
             <br />
             <asp:Label ID="Msg" runat="server" BackColor="#990000" ForeColor="White"></asp:Label>
-            <br /><br />SEU NOME
+            <br />
+            <br />
+            SEU NOME
          <br />
             <asp:TextBox Width="90%" ID="Nome" runat="server"></asp:TextBox>
-            <br />E-MAIL
+            <br />
+            <br />
+            E-MAIL
          <br />
             <asp:TextBox Width="90%" ID="Email" MaxLength="255" runat="server"></asp:TextBox>
+            <br />
             <br />
             MENSAGEM
          <br />
@@ -30,8 +34,11 @@
 
          <!-- MENSAGEM FINAL -->
          <div id="MsgFinal" runat="server" visible="false">
-            <br /><br /><br />
-            <h2>Seu e-mail foi enviado com sucesso!<br />Obrigado pela participação.</h2>
+            <br />
+            <br />
+            <br />
+            <h2>Seu e-mail foi enviado com sucesso!<br />
+               Obrigado pela participação.</h2>
          </div>
       </div>
    </div>
