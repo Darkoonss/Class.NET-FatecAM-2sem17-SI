@@ -20,7 +20,7 @@ public partial class Login : System.Web.UI.Page
       {
          // inicializa a classe de autenticação do usuário
          FormsAuthentication.Initialize();
-         // define os dados do ticket
+         // cria o ticket dwe autenticação
          Session["NomeUsuario"] = "jose";
          
          FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, Nome.Text, DateTime.Now, DateTime.Now.AddMinutes(30), false, Session["NomeUsuario"].ToString(), FormsAuthentication.FormsCookiePath);

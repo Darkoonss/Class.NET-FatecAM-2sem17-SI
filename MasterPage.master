@@ -23,7 +23,7 @@
       <div class="cabecalho">
          <!-- LOGOMARCA-->
          <div class="logomarca">
-            <img src="Images/marca.png" />
+            <asp:Image ID="Image1" ImageUrl="~/Images/marca.png" runat="server" />
          </div>
          <!-- MENU-->
          <div class="menu">
@@ -32,7 +32,17 @@
 
             <asp:HyperLink ID="HyperLink2" NavigateUrl="~/Sobre.aspx" runat="server">SOBRE</asp:HyperLink>
 
+            <asp:HyperLink ID="HyperLink4" NavigateUrl="~/Cadastro.aspx" runat="server">TRABALHE CONOSCO</asp:HyperLink>
+
             <asp:HyperLink ID="HyperLink3" NavigateUrl="~/FaleConosco.aspx" runat="server">FALE CONOSCO</asp:HyperLink>
+            
+            <asp:HyperLink ID="Editar" Visible="false" NavigateUrl="~/adm/CadastroEdit.aspx" runat="server">EDITAR CADASTRO</asp:HyperLink>
+           
+            <asp:HyperLink ID="EditarProdutos" Visible="false" NavigateUrl="~/adm/ProdutosEdit.aspx" runat="server">EDITAR PRODUTOS</asp:HyperLink>
+
+            <asp:HyperLink ID="Login" NavigateUrl="~/Login.aspx" runat="server">LOGIN</asp:HyperLink>
+
+            <asp:HyperLink ID="Logout" Visible="false" NavigateUrl="~/Logout.aspx" runat="server">LOGOUT</asp:HyperLink>
 
          </div>
       </div>

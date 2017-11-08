@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 
 // PACOTES DE ACESSO A DADOS (DATATABLE)
 using System.Data;
+using System.IO;
+using System.Diagnostics;
 
 public partial class adm_CadastroEdt : System.Web.UI.Page
 {
@@ -60,40 +62,42 @@ public partial class adm_CadastroEdt : System.Web.UI.Page
 
          Gravar.Enabled = true;
          Excluir.Enabled = true;
+
       }
    }
 
    protected void Gravar_Click(object sender, EventArgs e)
-   {
-      string comando = "UPDATE Cadastro SET Nome='" + Nome.Text + "',Email='" + Email.Text + "',Telefone='" + Telefone.Text + "',Resumo='" + Resumo.Text + "' WHERE Registro=" + Registro.Text;
+{
+   string comando = "UPDATE Cadastro SET Nome='" + Nome.Text + "',Email='" + Email.Text + "',Telefone='" + Telefone.Text + "',Resumo='" + Resumo.Text + "' WHERE Registro=" + Registro.Text;
 
-      AppDatabase.OleDBTransaction ole = new AppDatabase.OleDBTransaction();
-      // define a conexão com o database
-      ole.ConnectionString = conexao;
-      if ((int)ole.Query(comando) == 1)
-      {
-         Limpar();
-         CarregarNomes();
-      }else
-      {
-         msg.Text = "Falha na atualização dos dados!";
-      }
-   }
-   protected void Limpar()
+   AppDatabase.OleDBTransaction ole = new AppDatabase.OleDBTransaction();
+   // define a conexão com o database
+   ole.ConnectionString = conexao;
+   if ((int)ole.Query(comando) == 1)
    {
-      Registro.Text = "";
-      Nome.Text = "";
-      Email.Text = "";
-      Telefone.Text = "";
-      Resumo.Text = "";
-      Gravar.Enabled = false;
-      Excluir.Enabled = false;
+      Limpar();
+      CarregarNomes();
    }
-
-   protected void Excluir_Click(object sender, EventArgs e)
+   else
    {
-
+      msg.Text = "Falha na atualização dos dados!";
    }
+}
+protected void Limpar()
+{
+   Registro.Text = "";
+   Nome.Text = "";
+   Email.Text = "";
+   Telefone.Text = "";
+   Resumo.Text = "";
+   Gravar.Enabled = false;
+   Excluir.Enabled = false;
+}
+
+protected void Excluir_Click(object sender, EventArgs e)
+{
+
+}
 
 
 }

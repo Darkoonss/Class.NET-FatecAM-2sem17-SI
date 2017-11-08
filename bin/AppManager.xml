@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppManager</name>
+    </assembly>
+    <members>
+        <member name="T:AppManager.AppExceptions">
+            <summary>
+            Esta classe trata das exceções da aplicação
+            </summary>
+        </member>
+        <member name="P:AppManager.AppExceptions.PathSaveFile">
+            <summary>
+            Obtem ou define o caminho completo do arquivo de registro das exceções.
+            </summary>
+        </member>
+        <member name="M:AppManager.AppExceptions.SaveException">
+            <summary>
+            Este método salva a exceção no arquivo de log da aplicação
+            </summary>
+        </member>
+    </members>
+</doc>

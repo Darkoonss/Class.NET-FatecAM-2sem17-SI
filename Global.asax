@@ -18,13 +18,12 @@
    {
       // FAZ O TRATAMENTO DA EXCEÇÃO
       AppManager.AppExceptions apx = new AppManager.AppExceptions();
-      apx.SaveException(HttpContext.Current.Server.GetLastError());
+      apx.SaveException();
    }
 
    void Session_Start(object sender, EventArgs e)
    {
       // Code that runs when a new session is started
-
    }
 
    void Session_End(object sender, EventArgs e)

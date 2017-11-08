@@ -69,7 +69,8 @@ body {
 .conteudo {
    background-color: white;
    min-height: 1300px;
-   padding: 30px;
+   padding-left: 60px;
+   padding-top: 30px;
 }
 
 .rodape {
@@ -80,7 +81,16 @@ body {
 }
 
 
-/* ESTILO DOS CONTROLES DE FORMULÁRIO */
+/* CONTROLES DE FORMULÁRIO */
+
+label {
+   display: block;
+   font-size: 11px;
+   text-transform: uppercase;
+   margin-top: 14px;
+   font-weight: 600;
+}
+
 select, textarea, input[type="text"], input[type="password"] {
    font-size: 14px;
    padding: 8px;
@@ -106,5 +116,5 @@ input[type="submit"] {
       font-size: 14px;
       padding: 8px;
       border: 1px solid #C0c0c0;
-      background-color: #ff8000;
+      background-color: #4799e9;
    }
