@@ -36,14 +36,13 @@
 
             <asp:HyperLink ID="HyperLink3" NavigateUrl="~/FaleConosco.aspx" runat="server">FALE CONOSCO</asp:HyperLink>
             
-            <asp:HyperLink ID="Editar" Visible="false" NavigateUrl="~/adm/CadastroEdit.aspx" runat="server">EDITAR CADASTRO</asp:HyperLink>
+            <asp:HyperLink ID="Editar" Visible="false" NavigateUrl="~/adm/CadastroEdt.aspx" runat="server">EDITAR CADASTRO</asp:HyperLink>
            
-            <asp:HyperLink ID="EditarProdutos" Visible="false" NavigateUrl="~/adm/ProdutosEdit.aspx" runat="server">EDITAR PRODUTOS</asp:HyperLink>
+              <asp:HyperLink ID="EditarProdutos" Visible="false" NavigateUrl="~/adm/ProdutosEdit.aspx" runat="server">EDITAR PRODUTOS</asp:HyperLink>
 
             <asp:HyperLink ID="Login" NavigateUrl="~/Login.aspx" runat="server">LOGIN</asp:HyperLink>
 
             <asp:HyperLink ID="Logout" Visible="false" NavigateUrl="~/Logout.aspx" runat="server">LOGOUT</asp:HyperLink>
-
          </div>
       </div>
       <!-- ÁREA DE CONTEUDO-->
