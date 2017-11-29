@@ -32,7 +32,7 @@
         </asp:DropDownList>
         <br />
         FOTO<br />
-        <asp:Image ID="Foto" Style="max-width:300px;" runat="server" />
+        <asp:Image ID="Foto" Style="max-width: 300px;" runat="server" />
         <asp:HiddenField ID="UrlFoto" runat="server" />
         <br />
         <asp:FileUpload ID="FileUpload1" runat="server" />

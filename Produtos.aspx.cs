@@ -6,33 +6,45 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class adm_Produtos : System.Web.UI.Page
+public partial class Produtos : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!IsPostBack) LoadRepeater();
-
     }
 
-    // String de conexao com o banco de dados
-    string conexao = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + HttpContext.Current.Server.MapPath("~/app_data/BancoDados.accdb") + ";Persist Security Info = False; ";
-    // cria uma instancia da classe para transação no banco de dados access
-    // o pacote AppDataBase foi importado para a pasta bin
+    string conexao = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + HttpContext.Current.Server.MapPath("~/App_Data/BancoDados.accdb") + ";Persist Security Info=False;";
+
     AppDatabase.OleDBTransaction ole = new AppDatabase.OleDBTransaction();
 
     protected void LoadRepeater()
     {
-
-        // Le os produtos
-        string sql = "SELECT * FROM Produtos WHERE Statu>0 ORDER BY Nome";
+        // LE OS PRODUTOS DO BANCO DCE DADOS
+        string sql = "SELECT * FROM Produtos WHERE Status>0 ORDER BY Nome;";
         ole.ConnectionString = conexao;
         DataTable tb = (DataTable)ole.Query(sql);
 
-        // Coloca os produtos no repeater
-        ListaProdutos.DataSource = tb;
-        ListaProdutos.DataBind();
+        if (tb.Rows.Count > 0)
+        {
+            // COLOCA OS PRODUTOS NO REPEATER
+            ListaProdutos.DataSource = tb;
+            ListaProdutos.DataBind();
+        }
     }
 
+    protected void ListaProdutos_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    {
+        Image Foto = (Image)e.Item.FindControl("Foto");
+        DataRowView row = (DataRowView)e.Item.DataItem;
 
+        if (row["UrlFoto"].ToString() != "")
+        {
+            Foto.ImageUrl = ResolveUrl(row["UrlFoto"].ToString());
+            Foto.Visible = true;
+        }
+        else
+        {
+            Foto.Visible = false;
+        }
+    }
 }
